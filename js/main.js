@@ -11,6 +11,7 @@ function init() {
   byId("btnGithub").href = PROFILE.links.githubUrl;
   byId("btnLinkedin").href = PROFILE.links.linkedinUrl;
   byId("btnEmail").href = PROFILE.links.email;
+  initAvatar();
 
   const totals = PROFILE.course.totals;
   const academicIdentity = byId("academicIdentity");
@@ -57,6 +58,23 @@ function init() {
     hintEl: byId("ghHint"),
     max: 8
   });
+}
+
+function initAvatar() {
+  const avatar = document.querySelector(".avatar");
+  if (!avatar) return;
+  const img = avatar.querySelector("img");
+  if (!img) return;
+
+  const showPhoto = () => avatar.classList.add("has-photo");
+  const hidePhoto = () => avatar.classList.remove("has-photo");
+
+  img.addEventListener("load", showPhoto, { once: true });
+  img.addEventListener("error", hidePhoto, { once: true });
+
+  if (img.complete && img.naturalWidth > 0) {
+    showPhoto();
+  }
 }
 
 function renderAttributes() {

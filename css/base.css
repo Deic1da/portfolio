@@ -14,13 +14,40 @@
 .avatar{
   width:74px;
   height:74px;
-  border-radius:18px;
+  border-radius:50%;
   border:1px solid rgba(255,255,255,.14);
   background:
     radial-gradient(circle at 50% 30%, #ffd7b0 0 26px, transparent 27px),
     radial-gradient(circle at 50% 12%, #1b1f2c 0 22px, transparent 23px),
     linear-gradient(180deg, #1b1f2c 0%, #1b1f2c 36%, #244d9b 36%, #244d9b 100%);
   box-shadow: var(--shadow);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  color:#f5f6ff;
+}
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.avatarFallback{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:1.2rem;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+}
+.avatar.has-photo .avatarFallback{
+  opacity:0;
+  visibility:hidden;
 }
 .brandText h1{
   font-size:1.45rem;
