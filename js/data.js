@@ -21,10 +21,10 @@ export const PROFILE = {
   },
   links: {
     cvUrl: "#",
-    githubUser: "eicida",
-    githubUrl: "https://github.com/eicida",
-    linkedinUrl: "#",
-    email: "mailto:seuemail@exemplo.com"
+    githubUser: "Deic1da",
+    githubUrl: "https://github.com/Deic1da",
+    linkedinUrl: "https://www.linkedin.com/in/melquisedequegomes/",
+    email: "mailto:melquigms@gmail.com"
   }
 };
 

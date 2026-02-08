@@ -14,7 +14,7 @@ export async function loadGithubProjects({ mount, user, metaEl, hintEl, max = 8 
 
     const repos = await res.json();
     const filtered = repos
-      .filter(r => !r.fork)
+      .filter(r => !r.fork && !r.private)
       .sort((a,b)=> new Date(b.pushed_at) - new Date(a.pushed_at))
       .slice(0, max);
 
