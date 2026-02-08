@@ -39,29 +39,34 @@
 
       <div class="panelBody resumoGrid">
         <div class="card">
-          <h3>Curso</h3>
-          <ul class="kv" id="courseKVs"></ul>
-        </div>
-
-        <div class="card">
-          <h3>Progresso</h3>
-          <div class="progressBlock">
-            <div class="progressRow">
-              <span class="muted">Carga horária</span>
-              <span class="mono" id="chText">—</span>
-            </div>
-            <div class="bar" aria-hidden="true"><span id="chBar"></span></div>
-
-            <div class="progressRow mt8">
-              <span class="muted">Disciplinas obrigatórias</span>
-              <span class="mono" id="discText">—</span>
-            </div>
-            <div class="bar" aria-hidden="true"><span id="discBar"></span></div>
-
-            <p class="hint muted mt10">
-              *Baseado nos dados que você colou do CESMAC (sem suposições).
-            </p>
+          <h3>Formação Acadêmica</h3>
+          <div class="cardSection">
+            <div class="sectionTitle muted">Identidade</div>
+            <ul class="kv" id="academicIdentity"></ul>
           </div>
+          <div class="cardSection">
+            <div class="sectionTitle muted">Situação</div>
+            <ul class="kv" id="academicStatus"></ul>
+          </div>
+          <div class="cardSection">
+            <div class="sectionTitle muted">Progresso</div>
+            <div class="progressBlock">
+              <div class="progressRow">
+                <span class="muted">Carga horária</span>
+                <span class="mono" id="chText">—</span>
+              </div>
+              <div class="bar" aria-hidden="true"><span id="chBar"></span></div>
+
+              <div class="progressRow mt8">
+                <span class="muted">Disciplinas obrigatórias</span>
+                <span class="mono" id="discText">—</span>
+              </div>
+              <div class="bar" aria-hidden="true"><span id="discBar"></span></div>
+            </div>
+          </div>
+          <p class="hint muted mt10">
+            Dados acadêmicos baseados no histórico do CESMAC (somente disciplinas concluídas).
+          </p>
         </div>
 
         <div class="card">

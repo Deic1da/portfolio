@@ -12,14 +12,20 @@ function init() {
   byId("btnLinkedin").href = PROFILE.links.linkedinUrl;
   byId("btnEmail").href = PROFILE.links.email;
 
-  const kv = byId("courseKVs");
   const totals = PROFILE.course.totals;
-  kv.append(
+  const academicIdentity = byId("academicIdentity");
+  academicIdentity.append(
     kvRow("Instituição", PROFILE.course.institution),
-    kvRow("Curso", PROFILE.course.program),
-    kvRow("Períodos", `${PROFILE.course.totalPeriods}`),
-    kvRow("Concluídos", `${PROFILE.course.completedPeriods}`),
-    kvRow("Atual", `${PROFILE.course.currentPeriod}º`)
+    kvRow("Curso", PROFILE.course.program)
+  );
+
+  const academicStatus = byId("academicStatus");
+  const periodPct = pct(PROFILE.course.completedPeriods, PROFILE.course.totalPeriods);
+  academicStatus.append(
+    kvRow("Período atual", `${PROFILE.course.currentPeriod}º em andamento`),
+    kvRow("Total de períodos", `${PROFILE.course.totalPeriods}`),
+    kvRow("Períodos concluídos", `${PROFILE.course.completedPeriods}`),
+    kvRow("Conclusão", `${Math.round(periodPct)}% dos períodos concluídos`)
   );
 
   const chPct = pct(totals.chIntegralizada, totals.chCurso);

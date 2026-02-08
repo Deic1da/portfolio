@@ -86,6 +86,20 @@
   letter-spacing:.2px;
   margin-bottom:10px;
 }
+.cardSection{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-bottom:12px;
+}
+.cardSection:last-of-type{
+  margin-bottom:0;
+}
+.sectionTitle{
+  font-size:.82rem;
+  letter-spacing:.3px;
+  text-transform:uppercase;
+}
 
 .chips{ display:flex; flex-wrap:wrap; gap:8px; }
 .chip{
