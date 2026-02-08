@@ -20,7 +20,7 @@ export const PROFILE = {
     }
   },
   links: {
-    cvUrl: "#",
+    cvUrl: "docs/Melquisedeque%20Gomes%20da%20Silva%20Santos.pdf",
     githubUser: "Deic1da",
     githubUrl: "https://github.com/Deic1da",
     linkedinUrl: "https://www.linkedin.com/in/melquisedequegomes/",
