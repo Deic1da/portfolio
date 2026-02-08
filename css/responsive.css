@@ -184,18 +184,15 @@
   gap:16px;
 }
 .timelineScroller{
-  overflow-x:auto;
-  padding-bottom:10px;
+  width:100%;
 }
 .timelineCards{
-  display:flex;
+  display:grid;
   gap:16px;
-  padding:4px 6px 12px;
-  min-width:max-content;
+  padding:4px 0 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .timelineCard{
-  min-width:240px;
-  max-width:280px;
   padding:16px;
   border-radius: var(--radius2);
   border:1px solid rgba(155,182,255,.18);
@@ -218,6 +215,12 @@
   font-size:.95rem;
   color:var(--muted);
 }
+.timelineCardStatus{
+  font-size:.82rem;
+  font-weight:700;
+  letter-spacing:.3px;
+  text-transform:uppercase;
+}
 .timelineCourseList{
   margin:0;
   padding-left:18px;
@@ -236,8 +239,17 @@
   box-shadow: 0 16px 40px rgba(0,0,0,.35), inset 0 0 0 1px rgba(105,182,255,.2);
 }
 .timelineCard.planned{
-  border-color: rgba(165,136,255,.6);
-  box-shadow: 0 16px 40px rgba(0,0,0,.35), inset 0 0 0 1px rgba(165,136,255,.2);
+  border-color: rgba(148,158,173,.6);
+  box-shadow: 0 16px 40px rgba(0,0,0,.35), inset 0 0 0 1px rgba(148,158,173,.2);
+}
+.timelineCard.done .timelineCardStatus{
+  color: rgba(102,240,167,.9);
+}
+.timelineCard.doing .timelineCardStatus{
+  color: rgba(105,182,255,.9);
+}
+.timelineCard.planned .timelineCardStatus{
+  color: rgba(148,158,173,.9);
 }
 
 .projectsGrid{
@@ -247,9 +259,14 @@
 }
 
 @media (max-width: 720px){
-  .timelineCard{
-    min-width:200px;
-    max-width:240px;
+  .timelineCards{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px){
+  .timelineCards{
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

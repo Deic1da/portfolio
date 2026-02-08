@@ -8,9 +8,16 @@ export function renderTimeline({ mount, timeline }) {
 
   timeline.forEach((period, index) => {
     const label = `${period.period ?? index + 1}º`;
+    const statusMap = {
+      done: "Concluído",
+      doing: "Cursando",
+      planned: "Planejado"
+    };
+    const statusText = statusMap[period.status] ?? "Planejado";
     const header = el("div", { class: "timelineCardHeader" }, [
       el("div", { class: "timelineCardPeriod", text: label }),
-      el("div", { class: "timelineCardTitle", text: period.title })
+      el("div", { class: "timelineCardTitle", text: period.title }),
+      el("div", { class: "timelineCardStatus", text: statusText })
     ]);
     const list = el("ul", { class: "timelineCourseList" });
 
