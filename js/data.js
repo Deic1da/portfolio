@@ -4,7 +4,7 @@ export { SKILLS };
 export const PROFILE = {
   name: "Melqui",
   title: "Melqui — Portfólio",
-  subtitle: "Skills, atributos, passivas, projetos e timeline acadêmica.",
+  subtitle: "Skills, atributos, projetos e timeline acadêmica.",
   course: {
     institution: "CESMAC",
     program: "Sistemas de Informação",
@@ -32,14 +32,15 @@ export const ATTRIBUTES = [
   { id: "aprendizado", name: "Velocidade de aprendizado", value: 7 },
   { id: "consistencia", name: "Consistência", value: 6 },
   { id: "curiosidade", name: "Curiosidade técnica", value: 8 },
-  { id: "comunicacao", name: "Comunicação", value: 6 }
-];
-
-export const PASSIVES = [
-  { id: "maoNaMassa", name: "Mão na massa", desc: "Aprende fazendo: transforma conteúdo em prática e projeto pequeno pra consolidar." },
-  { id: "autodidato", name: "Autodidatismo", desc: "Quando falta recurso/estrutura, busca solução sozinho e testa até funcionar." },
-  { id: "consistenciaReal", name: "Constância > hype", desc: "Prefere evolução constante e incremental do que prometer demais." },
-  { id: "organiza", name: "Organização", desc: "Gosta de dividir, modularizar e deixar o projeto fácil de manter." }
+  { id: "comunicacao", name: "Comunicação", value: 6 },
+  { id: "problemSolving", name: "Resolução de problemas", value: 7 },
+  { id: "detail", name: "Atenção a detalhes", value: 6 },
+  { id: "autonomy", name: "Autonomia", value: 7 },
+  { id: "discipline", name: "Disciplina", value: 6 },
+  { id: "persistence", name: "Persistência", value: 8 },
+  { id: "teamwork", name: "Trabalho em equipe", value: 5 },
+  { id: "codeOrganization", name: "Organização de código", value: 7 },
+  { id: "writing", name: "Comunicação escrita", value: 6 }
 ];
 
 export const ACADEMIC_TIMELINE = [

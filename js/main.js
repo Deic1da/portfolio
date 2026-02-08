@@ -1,4 +1,4 @@
-import { PROFILE, SKILLS, ATTRIBUTES, PASSIVES, ACADEMIC_TIMELINE } from "./data.js";
+import { PROFILE, SKILLS, ATTRIBUTES, ACADEMIC_TIMELINE } from "./data.js";
 import { el, pct, avg } from "./utils.js";
 import { renderSkills } from "./skills.js";
 import { renderTimeline } from "./timeline.js";
@@ -48,8 +48,6 @@ function init() {
 
   renderAttributes();
 
-  renderPassives();
-
   renderTimeline({ mount: byId("timeline"), timeline: ACADEMIC_TIMELINE });
 
   loadGithubProjects({
@@ -73,22 +71,6 @@ function renderAttributes() {
       el("span", { style: `width:${Math.max(0, Math.min(100, a.value * 10))}%` })
     ]);
     grid.appendChild(el("div", { class: "attrCard" }, [top, bar]));
-  }
-}
-
-function renderPassives() {
-  const grid = byId("passiveGrid");
-  grid.innerHTML = "";
-  for (const p of PASSIVES) {
-    grid.appendChild(
-      el("div", { class: "passive" }, [
-        el("div", { class: "passiveTitle" }, [
-          el("span", { class: "dot ok", "aria-hidden": "true" }),
-          el("span", { text: p.name })
-        ]),
-        el("p", { class: "muted", text: p.desc })
-      ])
-    );
   }
 }
 
