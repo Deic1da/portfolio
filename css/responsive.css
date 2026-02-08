@@ -4,6 +4,15 @@
   gap:14px;
 }
 
+.projectTitle,
+.skillName,
+.skillsPanelTitle,
+.brandText h1,
+.areaRow .name,
+.kv .v{
+  overflow-wrap:anywhere;
+}
+
 .resumoGrid{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -286,15 +295,172 @@
   gap:12px;
 }
 
-@media (max-width: 720px){
+@media (max-width: 768px){
+  .container,
+  .mainLayout{
+    width:100%;
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  .topbar{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+    padding:18px 0 8px;
+  }
+
+  .actions{
+    width:100%;
+    justify-content:flex-start;
+  }
+
+  .grid{
+    gap:16px;
+  }
+
+  .resumoGrid{
+    grid-template-columns: 1fr;
+  }
+
+  .skillsPanel{
+    position:static;
+    top:auto;
+  }
+
+  .skillsWrap{
+    grid-template-columns: 1fr;
+  }
+
+  .attrGrid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .projectsGrid{
+    grid-template-columns: 1fr;
+  }
+
   .timelineCards{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 520px){
+@media (max-width: 480px){
+  body{
+    font-size:.95rem;
+    line-height:1.5;
+  }
+
+  .container,
+  .mainLayout{
+    padding-left:14px;
+    padding-right:14px;
+  }
+
+  .topbar{
+    gap:10px;
+  }
+
+  .avatar{
+    width:64px;
+    height:64px;
+  }
+
+  .brand{
+    align-items:flex-start;
+  }
+
+  .brandText h1{
+    font-size:1.25rem;
+  }
+
+  .brandText p{
+    font-size:.92rem;
+  }
+
+  .actions{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap:10px;
+  }
+
+  .btn{
+    width:100%;
+    text-align:center;
+  }
+
+  .grid{
+    gap:18px;
+  }
+
+  .panelHeader{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .panelMeta{
+    font-size:.82rem;
+  }
+
+  .skillsPanelDesc{
+    line-height:1.5;
+  }
+
+  .skillsPanelNote,
+  .hint{
+    line-height:1.5;
+  }
+
+  .skillsWrap{
+    grid-template-columns: 1fr;
+  }
+
+  .skillCard{
+    padding:14px;
+  }
+
+  .attrGrid{
+    grid-template-columns: 1fr;
+  }
+
+  .attrCard{
+    padding:14px;
+  }
+
+  .projectTop{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .smallLink{
+    width:100%;
+    text-align:center;
+  }
+
+  .badges{
+    gap:6px;
+  }
+
+  .timelineScroller{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+
   .timelineCards{
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: none;
+    display:flex;
+    gap:14px;
+    padding:4px 0 14px;
+    scroll-snap-type:x mandatory;
+  }
+
+  .timelineCard{
+    flex:0 0 88%;
+    scroll-snap-align:start;
+  }
+
+  .timelineCourseList li{
+    font-size:.98rem;
   }
 }
 
