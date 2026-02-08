@@ -155,7 +155,6 @@
 }
 .badge.ok{ border-color: rgba(102,240,167,.28); }
 .badge.warn{ border-color: rgba(255,216,107,.28); }
-.badge.bad{ border-color: rgba(255,91,110,.35); }
 
 .smallLink{
   font-weight:800;
