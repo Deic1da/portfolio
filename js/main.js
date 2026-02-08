@@ -1,5 +1,5 @@
 import { PROFILE, SKILLS, ATTRIBUTES, ACADEMIC_TIMELINE } from "./data.js";
-import { el, pct, avg } from "./utils.js";
+import { el, pct, avg, formatGrade } from "./utils.js";
 import { renderSkills } from "./skills.js";
 import { renderTimeline } from "./timeline.js";
 import { loadGithubProjects } from "./github.js";
@@ -75,7 +75,7 @@ function renderAreaMap() {
   const graded = ACADEMIC_TIMELINE
     .filter(p => p.status === "done")
     .flatMap(p => p.courses)
-    .filter(c => typeof c.grade === "number");
+    .filter(c => c.status === "APR" && typeof c.grade === "number");
 
   const areas = [
     { name: "Programação", pick: (c) => /programa|laboratório de programação|poo|estrutura de dados/i.test(c.name) },
@@ -88,13 +88,27 @@ function renderAreaMap() {
   ];
 
   for (const a of areas) {
-    const grades = graded.filter(a.pick).map(x => x.grade);
+    const courses = graded.filter(a.pick);
+    const grades = courses.map(x => x.grade);
     const m = avg(grades);
-    const label = (m == null) ? "—" : `${m.toFixed(2).replace(".", ",")}/10`;
+    const score = (m == null) ? "—" : `${formatGrade(m)}/10`;
+    const count = courses.length;
+    const countText = `(${count} disciplina${count === 1 ? "" : "s"})`;
+    const tooltip = courses.length
+      ? courses.map(c => c.name).join(", ")
+      : "Nenhuma disciplina com nota.";
     mount.appendChild(
       el("div", { class: "areaRow" }, [
         el("div", { class: "name", text: a.name }),
-        el("div", { class: "score mono", text: label })
+        el("div", { class: "score mono" }, [
+          el("span", { text: `${score} ${countText}` }),
+          el("button", {
+            class: "areaInfo",
+            type: "button",
+            title: tooltip,
+            "aria-label": `Disciplinas consideradas em ${a.name}`
+          }, ["i"])
+        ])
       ])
     );
   }
