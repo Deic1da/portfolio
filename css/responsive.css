@@ -305,14 +305,20 @@
 
   .topbar{
     flex-direction:column;
-    align-items:flex-start;
+    align-items:center;
     gap:12px;
     padding:18px 0 8px;
   }
 
+  .brand{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+
   .actions{
     width:100%;
-    justify-content:flex-start;
+    justify-content:center;
   }
 
   .grid{
@@ -362,12 +368,13 @@
   }
 
   .avatar{
-    width:64px;
-    height:64px;
+    width:96px;
+    height:96px;
   }
 
   .brand{
-    align-items:flex-start;
+    align-items:center;
+    text-align:center;
   }
 
   .brandText h1{
@@ -461,6 +468,20 @@
 
   .timelineCourseList li{
     font-size:.98rem;
+  }
+
+  .areaRow{
+    grid-template-columns: 1fr;
+    align-items:flex-start;
+  }
+
+  .areaRow .name{
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .areaRow .score{
+    justify-content:flex-start;
   }
 }
 
