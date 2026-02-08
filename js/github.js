@@ -24,6 +24,7 @@ export async function loadGithubProjects({ mount, user, metaEl, hintEl, max = 8 
     }
 
     for (const r of filtered) {
+      const languages = await loadRepoLanguages(r);
       const top = el("div", { class:"projectTop" }, [
         el("div", {}, [
           el("div", { class:"projectTitle", text: r.name }),
@@ -32,8 +33,11 @@ export async function loadGithubProjects({ mount, user, metaEl, hintEl, max = 8 
         el("a", { class:"smallLink", href: r.html_url, target:"_blank", rel:"noreferrer", text:"abrir" })
       ]);
 
+      const languageBadges = (languages.length ? languages : (r.language ? [r.language] : []))
+        .map(lang => el("span", { class:"badge ok", text: lang }));
+
       const badges = el("div", { class:"badges" }, [
-        r.language ? el("span", { class:"badge ok", text: r.language }) : null,
+        ...languageBadges,
         el("span", { class:"badge", text: `★ ${r.stargazers_count}` }),
         el("span", { class:"badge", text: `⎇ ${r.forks_count}` }),
         el("span", { class:"badge warn", text: `update: ${fmtDate(r.pushed_at)}` })
@@ -46,6 +50,18 @@ export async function loadGithubProjects({ mount, user, metaEl, hintEl, max = 8 
     hintEl.textContent = `Mostrando ${filtered.length} repositórios públicos mais recentes (sem forks).`;
   } catch (e) {
     hintEl.textContent = "Falha ao carregar projetos (verifique conexão ou limite de requisições do GitHub).";
+  }
+}
+
+async function loadRepoLanguages(repo) {
+  if (!repo?.languages_url) return [];
+  try {
+    const res = await fetch(repo.languages_url, { headers: { "Accept": "application/vnd.github+json" } });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return Object.keys(data);
+  } catch (e) {
+    return [];
   }
 }
 
