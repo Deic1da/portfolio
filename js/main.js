@@ -22,7 +22,7 @@ function init() {
   const academicStatus = byId("academicStatus");
   const periodPct = pct(PROFILE.course.completedPeriods, PROFILE.course.totalPeriods);
   academicStatus.append(
-    kvRow("Período atual", `${PROFILE.course.currentPeriod}º em andamento`),
+    kvRow("Período atual", `${PROFILE.course.currentPeriod}º`),
     kvRow("Total de períodos", `${PROFILE.course.totalPeriods}`),
     kvRow("Períodos concluídos", `${PROFILE.course.completedPeriods}`),
     kvRow("Conclusão", `${Math.round(periodPct)}% dos períodos concluídos`)

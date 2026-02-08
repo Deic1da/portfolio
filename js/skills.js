@@ -6,8 +6,6 @@ export function renderSkills({ mount, panel, skills, defaultSelectedId }) {
 
   const sorted = [...skills].sort((a, b) => (b.affinity ?? 0) - (a.affinity ?? 0));
   const initialId = defaultSelectedId ?? sorted[0]?.id;
-  const scrollTarget = panel ?? mount.closest("section") ?? mount;
-
   let selectedId = initialId;
   const levelView = new Map();
 
@@ -33,9 +31,6 @@ export function renderSkills({ mount, panel, skills, defaultSelectedId }) {
       ev?.stopPropagation?.();
       selectedId = s.id;
       updateAll();
-      requestAnimationFrame(() => {
-        scrollTarget.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
       card.focus({ preventScroll: true });
     };
 
