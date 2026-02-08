@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Melqui — Portfólio</title>
+
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/sections.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+</head>
+
+<body>
+  <div class="bg"></div>
+
+  <header class="topbar container">
+    <div class="brand">
+      <div class="avatar" aria-hidden="true"></div>
+      <div class="brandText">
+        <h1>Melqui — Portfólio</h1>
+        <p class="muted">UI gamificada, conteúdo objetivo. Skills, atributos, passivas, projetos e timeline acadêmica.</p>
+      </div>
+    </div>
+
+    <nav class="actions" aria-label="Ações e links">
+      <a class="btn" id="btnCv" href="#" target="_blank" rel="noreferrer">Baixar CV</a>
+      <a class="btn" id="btnGithub" href="#" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="btn" id="btnLinkedin" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a class="btn" id="btnEmail" href="#" target="_blank" rel="noreferrer">E-mail</a>
+    </nav>
+  </header>
+
+  <main class="container grid">
+    <!-- RESUMO -->
+    <section class="panel" aria-labelledby="secResumo">
+      <div class="panelHeader">
+        <h2 id="secResumo">Resumo</h2>
+        <div class="chips" id="summaryChips"></div>
+      </div>
+
+      <div class="panelBody resumoGrid">
+        <div class="card">
+          <h3>Curso</h3>
+          <ul class="kv" id="courseKVs"></ul>
+        </div>
+
+        <div class="card">
+          <h3>Progresso</h3>
+          <div class="progressBlock">
+            <div class="progressRow">
+              <span class="muted">Carga horária</span>
+              <span class="mono" id="chText">—</span>
+            </div>
+            <div class="bar" aria-hidden="true"><span id="chBar"></span></div>
+
+            <div class="progressRow mt8">
+              <span class="muted">Disciplinas obrigatórias</span>
+              <span class="mono" id="discText">—</span>
+            </div>
+            <div class="bar" aria-hidden="true"><span id="discBar"></span></div>
+
+            <p class="hint muted mt10">
+              *Baseado nos dados que você colou do CESMAC (sem suposições).
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Mapa de áreas (com notas)</h3>
+          <div id="areaMap" class="areaMap"></div>
+          <p class="hint muted mt10">
+            “Cursando / planejado” não entra na média. Só disciplinas com nota.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="panel" aria-labelledby="secSkills">
+      <div class="panelHeader">
+        <h2 id="secSkills">Skills</h2>
+        <div class="panelMeta mono muted">1–10 • clique para expandir • ← → níveis</div>
+      </div>
+
+      <div class="panelBody">
+        <div class="skillsWrap" id="skillsWrap">
+          <!-- JS injeta cards -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ATRIBUTOS -->
+    <section class="panel" aria-labelledby="secAttrs">
+      <div class="panelHeader">
+        <h2 id="secAttrs">Atributos</h2>
+        <div class="panelMeta mono muted">1–10</div>
+      </div>
+      <div class="panelBody">
+        <div class="attrGrid" id="attrGrid"></div>
+      </div>
+    </section>
+
+    <!-- PASSIVAS -->
+    <section class="panel" aria-labelledby="secPassivas">
+      <div class="panelHeader">
+        <h2 id="secPassivas">Passivas</h2>
+        <div class="panelMeta mono muted">traços que você usa no dia a dia</div>
+      </div>
+      <div class="panelBody">
+        <div class="passiveGrid" id="passiveGrid"></div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="panel" aria-labelledby="secTimeline">
+      <div class="panelHeader">
+        <h2 id="secTimeline">Linha do tempo</h2>
+        <div class="panelMeta mono muted">1º → 8º período</div>
+      </div>
+      <div class="panelBody">
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section class="panel" aria-labelledby="secProjects">
+      <div class="panelHeader">
+        <h2 id="secProjects">Projetos (GitHub)</h2>
+        <div class="panelMeta mono muted"><span id="ghMeta">—</span></div>
+      </div>
+
+      <div class="panelBody">
+        <div class="projectsGrid" id="projectsGrid"></div>
+        <div class="muted hint mt10" id="ghHint"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container footer muted">
+    UI gamificada • conteúdo objetivo • feito por Melqui
+  </footer>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

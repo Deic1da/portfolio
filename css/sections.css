@@ -1,0 +1,184 @@
+/* Topbar */
+.topbar{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:16px;
+  padding:22px 0 10px;
+}
+
+.brand{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+.avatar{
+  width:74px;
+  height:74px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.14);
+  background:
+    radial-gradient(circle at 50% 30%, #ffd7b0 0 26px, transparent 27px),
+    radial-gradient(circle at 50% 12%, #1b1f2c 0 22px, transparent 23px),
+    linear-gradient(180deg, #1b1f2c 0%, #1b1f2c 36%, #244d9b 36%, #244d9b 100%);
+  box-shadow: var(--shadow);
+}
+.brandText h1{
+  font-size:1.45rem;
+  letter-spacing:.2px;
+}
+.brandText p{
+  margin-top:6px;
+  font-size:.96rem;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+/* Buttons */
+.btn{
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(155,182,255,.22);
+  background: linear-gradient(180deg, rgba(12,21,50,.9), rgba(7,10,22,.8));
+  box-shadow: 0 10px 25px rgba(0,0,0,.28);
+  transition: transform .12s ease, border-color .12s ease;
+  font-weight:600;
+  font-size:.92rem;
+}
+.btn:hover{ transform: translateY(-1px); border-color: rgba(120,255,214,.35); }
+.btn:active{ transform: translateY(0px); }
+
+/* Panel */
+.panel{
+  background: var(--panel);
+  border:1px solid rgba(155,182,255,.16);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+.panelHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:14px var(--pad);
+  border-bottom:1px solid rgba(155,182,255,.12);
+  background: linear-gradient(180deg, rgba(8,12,26,.45), rgba(8,12,26,0));
+}
+.panelHeader h2{
+  font-size:1.05rem;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+}
+.panelMeta{ font-size:.86rem; }
+.panelBody{ padding: var(--pad); }
+
+.card{
+  background: var(--card);
+  border:1px solid rgba(155,182,255,.12);
+  border-radius: var(--radius2);
+  padding:14px;
+}
+.card h3{
+  font-size:1rem;
+  letter-spacing:.2px;
+  margin-bottom:10px;
+}
+
+/* Chips / tags */
+.chips{ display:flex; flex-wrap:wrap; gap:8px; }
+.chip{
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(120,255,214,.18);
+  background: rgba(7,10,22,.6);
+  font-size:.85rem;
+  font-weight:600;
+}
+
+/* Key/Value list */
+.kv{ list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+.kv li{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 10px;
+  border-radius:12px;
+  border:1px solid rgba(155,182,255,.1);
+  background: rgba(7,10,22,.45);
+}
+.kv .k{ color:var(--muted); }
+.kv .v{ font-weight:700; }
+
+/* Bars */
+.bar{
+  height:10px;
+  border-radius:999px;
+  background: rgba(7,10,22,.6);
+  border:1px solid rgba(155,182,255,.12);
+  overflow:hidden;
+}
+.bar > span{
+  display:block;
+  height:100%;
+  width:0%;
+  background: linear-gradient(90deg, rgba(120,255,214,.9), rgba(155,182,255,.9));
+  border-radius:999px;
+}
+
+/* Project card */
+.project{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  padding:14px;
+  border-radius: var(--radius2);
+  border:1px solid rgba(155,182,255,.12);
+  background: rgba(7,10,22,.45);
+}
+.projectTop{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:flex-start;
+}
+.projectTitle{
+  font-weight:800;
+  letter-spacing:.2px;
+}
+.badges{ display:flex; gap:8px; flex-wrap:wrap; }
+.badge{
+  padding:6px 8px;
+  border-radius:999px;
+  border:1px solid rgba(155,182,255,.18);
+  background: rgba(12,21,50,.55);
+  font-size:.82rem;
+  font-weight:700;
+}
+.badge.ok{ border-color: rgba(102,240,167,.28); }
+.badge.warn{ border-color: rgba(255,216,107,.28); }
+
+.smallLink{
+  font-weight:800;
+  padding:8px 10px;
+  border-radius:12px;
+  border:1px solid rgba(120,255,214,.18);
+  background: rgba(12,21,50,.55);
+  transition: transform .12s ease, border-color .12s ease;
+}
+.smallLink:hover{ transform: translateY(-1px); border-color: rgba(120,255,214,.35); }
+
+/* Icon dots (status) */
+.dot{
+  width:10px; height:10px; border-radius:50%;
+  background: rgba(155,182,255,.35);
+  box-shadow: 0 0 0 3px rgba(155,182,255,.08);
+}
+.dot.ok{ background: rgba(102,240,167,.85); box-shadow: 0 0 0 3px rgba(102,240,167,.10); }
+.dot.warn{ background: rgba(255,216,107,.9); box-shadow: 0 0 0 3px rgba(255,216,107,.12); }
+.dot.bad{ background: rgba(255,91,110,.9); box-shadow: 0 0 0 3px rgba(255,91,110,.12); }

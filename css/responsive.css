@@ -1,0 +1,271 @@
+.grid{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap:14px;
+  padding:10px 0 18px;
+}
+
+/* Resumo */
+.resumoGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+}
+.progressBlock .progressRow{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:8px;
+}
+.areaMap{
+  display:grid;
+  gap:10px;
+}
+.areaRow{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap:10px;
+  align-items:center;
+  padding:10px 10px;
+  border-radius:12px;
+  border:1px solid rgba(155,182,255,.10);
+  background: rgba(7,10,22,.45);
+}
+.areaRow .name{
+  font-weight:800;
+}
+.areaRow .score{
+  font-weight:900;
+}
+
+/* Skills */
+.skillsWrap{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+  position:relative;
+  align-items:start;
+}
+
+.skillCard{
+  position:relative;
+  padding:12px;
+  border-radius: var(--radius2);
+  border:1px solid rgba(155,182,255,.12);
+  background: rgba(7,10,22,.45);
+  cursor:pointer;
+  transition: transform .12s ease, border-color .12s ease;
+  user-select:none;
+}
+.skillCard:hover{ transform: translateY(-1px); border-color: rgba(120,255,214,.28); }
+.skillCard:active{ transform: translateY(0px); }
+
+.skillTop{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:flex-start;
+}
+.skillName{
+  font-weight:900;
+}
+.skillLevel{
+  font-weight:900;
+}
+.skillBar{
+  margin-top:10px;
+  height:10px;
+  border-radius:999px;
+  background: rgba(7,10,22,.6);
+  border:1px solid rgba(155,182,255,.12);
+  overflow:hidden;
+}
+.skillBar > span{
+  display:block;
+  height:100%;
+  width:0%;
+  background: linear-gradient(90deg, rgba(120,255,214,.9), rgba(155,182,255,.9));
+  border-radius:999px;
+}
+
+/* Expanded skill pinned on top */
+.skillCard.expanded{
+  grid-column: 1 / -1;
+  cursor:default;
+  transform:none;
+  border-color: rgba(120,255,214,.28);
+  background: rgba(10,18,40,.62);
+  position:sticky;
+  top: 12px; /* fica sempre em cima dentro do painel */
+  z-index:3;
+  box-shadow: 0 18px 50px rgba(0,0,0,.35);
+}
+.skillDetails{
+  margin-top:10px;
+  display:none;
+  gap:10px;
+}
+.skillCard.expanded .skillDetails{ display:grid; }
+
+.skillDetailsTop{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+.levelNav{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+.iconBtn{
+  width:38px;
+  height:34px;
+  border-radius:12px;
+  border:1px solid rgba(155,182,255,.18);
+  background: rgba(12,21,50,.55);
+  color:var(--txt);
+  font-weight:900;
+  cursor:pointer;
+  transition: transform .12s ease, border-color .12s ease;
+}
+.iconBtn:hover{ transform: translateY(-1px); border-color: rgba(120,255,214,.28); }
+.iconBtn:active{ transform: translateY(0px); }
+
+.levelText{
+  font-weight:900;
+}
+
+.skillDesc{
+  padding:12px;
+  border-radius:12px;
+  border:1px solid rgba(155,182,255,.12);
+  background: rgba(7,10,22,.45);
+  line-height:1.35;
+}
+.skillNote{
+  font-size:.9rem;
+  color:var(--muted);
+}
+
+/* Atributos */
+.attrGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+}
+.attrCard{
+  padding:12px;
+  border-radius: var(--radius2);
+  border:1px solid rgba(155,182,255,.12);
+  background: rgba(7,10,22,.45);
+}
+.attrTop{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+.attrName{ font-weight:900; }
+.attrVal{ font-weight:900; }
+.attrBar{
+  margin-top:10px;
+  height:10px;
+  border-radius:999px;
+  background: rgba(7,10,22,.6);
+  border:1px solid rgba(155,182,255,.12);
+  overflow:hidden;
+}
+.attrBar > span{
+  display:block;
+  height:100%;
+  width:0%;
+  background: linear-gradient(90deg, rgba(120,255,214,.85), rgba(155,182,255,.85));
+  border-radius:999px;
+}
+
+/* Passivas */
+.passiveGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+}
+.passive{
+  padding:12px;
+  border-radius: var(--radius2);
+  border:1px solid rgba(155,182,255,.12);
+  background: rgba(7,10,22,.45);
+}
+.passiveTitle{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  font-weight:900;
+}
+.passive p{ margin-top:8px; line-height:1.35; }
+
+/* Timeline */
+.timeline{
+  display:grid;
+  gap:12px;
+}
+.period{
+  padding:12px;
+  border-radius: var(--radius2);
+  border:1px solid rgba(155,182,255,.12);
+  background: rgba(7,10,22,.45);
+}
+.periodTop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.periodTitle{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  font-weight:900;
+}
+.periodMeta{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.periodList{
+  margin-top:10px;
+  display:grid;
+  gap:8px;
+}
+.courseRow{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px;
+  border-radius:12px;
+  border:1px solid rgba(155,182,255,.10);
+  background: rgba(12,21,50,.45);
+}
+.courseRow .left{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.courseRow .name{ font-weight:800; }
+.courseRow .sub{ font-size:.9rem; color:var(--muted); }
+.courseRow .right{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  text-align:right;
+}
+.courseRow .grade{ font-weight:900; }
+.courseRow .ch{ font-size:.9rem; color:var(--muted); }
+
+/* Projects */
+.projectsGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+}
