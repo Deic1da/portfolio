@@ -44,6 +44,49 @@
   align-items:start;
 }
 
+.skillsPanel{
+  margin-bottom:14px;
+  padding:14px;
+  border-radius: var(--radius2);
+  border:1px solid rgba(120,255,214,.22);
+  background: rgba(10,18,40,.62);
+  position:sticky;
+  top:12px;
+  z-index:3;
+  box-shadow: 0 18px 50px rgba(0,0,0,.35);
+  display:grid;
+  gap:10px;
+}
+.skillsPanelTag{
+  font-size:.82rem;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+}
+.skillsPanelTitle{
+  font-size:1.1rem;
+  font-weight:900;
+}
+.skillsPanelMeta{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+.skillsPanelLevel{
+  font-weight:900;
+}
+.skillsPanelDesc{
+  padding:12px;
+  border-radius:12px;
+  border:1px solid rgba(155,182,255,.12);
+  background: rgba(7,10,22,.45);
+  line-height:1.35;
+}
+.skillsPanelNote{
+  font-size:.9rem;
+  color:var(--muted);
+}
+
 .skillCard{
   position:relative;
   padding:12px;
@@ -56,6 +99,10 @@
 }
 .skillCard:hover{ transform: translateY(-1px); border-color: rgba(120,255,214,.28); }
 .skillCard:active{ transform: translateY(0px); }
+.skillCard.is-active{
+  border-color: rgba(120,255,214,.55);
+  box-shadow: 0 0 0 1px rgba(120,255,214,.15);
+}
 
 .skillTop{
   display:flex;
@@ -84,31 +131,6 @@
   background: linear-gradient(90deg, rgba(120,255,214,.9), rgba(155,182,255,.9));
   border-radius:999px;
 }
-
-.skillCard.expanded{
-  grid-column: 1 / -1;
-  cursor:default;
-  transform:none;
-  border-color: rgba(120,255,214,.28);
-  background: rgba(10,18,40,.62);
-  position:sticky;
-  top: 12px;
-  z-index:3;
-  box-shadow: 0 18px 50px rgba(0,0,0,.35);
-}
-.skillDetails{
-  margin-top:10px;
-  display:none;
-  gap:10px;
-}
-.skillCard.expanded .skillDetails{ display:grid; }
-
-.skillDetailsTop{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-}
 .levelNav{
   display:flex;
   gap:8px;
@@ -130,18 +152,6 @@
 
 .levelText{
   font-weight:900;
-}
-
-.skillDesc{
-  padding:12px;
-  border-radius:12px;
-  border:1px solid rgba(155,182,255,.12);
-  background: rgba(7,10,22,.45);
-  line-height:1.35;
-}
-.skillNote{
-  font-size:.9rem;
-  color:var(--muted);
 }
 
 .attrGrid{

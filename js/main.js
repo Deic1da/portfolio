@@ -12,13 +12,6 @@ function init() {
   byId("btnLinkedin").href = PROFILE.links.linkedinUrl;
   byId("btnEmail").href = PROFILE.links.email;
 
-  const chips = byId("summaryChips");
-  chips.append(
-    chip(`Perfil: Estudante / dev em formação`),
-    chip(`Curso: ${PROFILE.course.program} (${PROFILE.course.institution})`),
-    chip(`Período atual: ${PROFILE.course.currentPeriod}º / ${PROFILE.course.totalPeriods}º`)
-  );
-
   const kv = byId("courseKVs");
   const totals = PROFILE.course.totals;
   kv.append(
@@ -42,8 +35,9 @@ function init() {
   const defaultExpanded = [...SKILLS].sort((a, b) => (b.affinity ?? 0) - (a.affinity ?? 0))[0]?.id;
   renderSkills({
     mount: byId("skillsWrap"),
+    panel: byId("skillsPanel"),
     skills: SKILLS,
-    defaultExpandedId: defaultExpanded
+    defaultSelectedId: defaultExpanded
   });
 
   renderAttributes();
@@ -107,7 +101,6 @@ function renderAreaMap() {
 }
 
 function byId(id) { return document.getElementById(id); }
-function chip(text) { return el("span", { class: "chip", text }); }
 function kvRow(k, v) {
   return el("li", {}, [
     el("span", { class: "k", text: k }),
