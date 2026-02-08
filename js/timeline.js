@@ -6,8 +6,7 @@ export function renderTimeline({ mount, timeline }) {
   const scroller = el("div", { class: "timelineScroller" });
   const track = el("div", { class: "timelineCards", role: "list", "aria-label": "Períodos acadêmicos" });
 
-  timeline.forEach((period, index) => {
-    const label = `${period.period ?? index + 1}º`;
+  timeline.forEach((period) => {
     const statusMap = {
       done: "Concluído",
       doing: "Cursando",
@@ -15,7 +14,6 @@ export function renderTimeline({ mount, timeline }) {
     };
     const statusText = statusMap[period.status] ?? "Planejado";
     const header = el("div", { class: "timelineCardHeader" }, [
-      el("div", { class: "timelineCardPeriod", text: label }),
       el("div", { class: "timelineCardTitle", text: period.title }),
       el("div", { class: "timelineCardStatus", text: statusText })
     ]);

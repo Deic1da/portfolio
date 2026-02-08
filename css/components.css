@@ -44,12 +44,13 @@ body{
 }
 
 .container{
-  width:min(1100px, calc(100% - 28px));
+  width:min(90vw, 1200px);
   margin:0 auto;
+  padding:0 14px;
 }
 
 .mainLayout{
-  width:100%;
+  width:min(90vw, 1200px);
   padding:10px 14px 18px;
   margin:0 auto;
 }

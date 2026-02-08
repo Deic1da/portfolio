@@ -207,10 +207,6 @@
   flex-direction:column;
   gap:6px;
 }
-.timelineCardPeriod{
-  font-weight:900;
-  letter-spacing:.4px;
-}
 .timelineCardTitle{
   font-size:.95rem;
   color:var(--muted);
