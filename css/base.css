@@ -1,4 +1,3 @@
-/* Topbar */
 .topbar{
   display:flex;
   align-items:flex-end;
@@ -39,7 +38,6 @@
   justify-content:flex-end;
 }
 
-/* Buttons */
 .btn{
   padding:10px 12px;
   border-radius:14px;
@@ -53,7 +51,6 @@
 .btn:hover{ transform: translateY(-1px); border-color: rgba(120,255,214,.35); }
 .btn:active{ transform: translateY(0px); }
 
-/* Panel */
 .panel{
   background: var(--panel);
   border:1px solid rgba(155,182,255,.16);
@@ -90,7 +87,6 @@
   margin-bottom:10px;
 }
 
-/* Chips / tags */
 .chips{ display:flex; flex-wrap:wrap; gap:8px; }
 .chip{
   padding:8px 10px;
@@ -101,7 +97,6 @@
   font-weight:600;
 }
 
-/* Key/Value list */
 .kv{ list-style:none; padding:0; margin:0; display:grid; gap:8px; }
 .kv li{
   display:flex;
@@ -115,7 +110,6 @@
 .kv .k{ color:var(--muted); }
 .kv .v{ font-weight:700; }
 
-/* Bars */
 .bar{
   height:10px;
   border-radius:999px;
@@ -131,7 +125,6 @@
   border-radius:999px;
 }
 
-/* Project card */
 .project{
   display:flex;
   flex-direction:column;
@@ -173,7 +166,6 @@
 }
 .smallLink:hover{ transform: translateY(-1px); border-color: rgba(120,255,214,.35); }
 
-/* Icon dots (status) */
 .dot{
   width:10px; height:10px; border-radius:50%;
   background: rgba(155,182,255,.35);

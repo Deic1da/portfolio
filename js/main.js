@@ -7,13 +7,11 @@ import { loadGithubProjects } from "./github.js";
 init();
 
 function init() {
-  // Header links
   byId("btnCv").href = PROFILE.links.cvUrl;
   byId("btnGithub").href = PROFILE.links.githubUrl;
   byId("btnLinkedin").href = PROFILE.links.linkedinUrl;
   byId("btnEmail").href = PROFILE.links.email;
 
-  // Summary chips
   const chips = byId("summaryChips");
   chips.append(
     chip(`Perfil: Estudante / dev em formação`),
@@ -21,7 +19,6 @@ function init() {
     chip(`Período atual: ${PROFILE.course.currentPeriod}º / ${PROFILE.course.totalPeriods}º`)
   );
 
-  // Course KVs
   const kv = byId("courseKVs");
   const totals = PROFILE.course.totals;
   kv.append(
@@ -32,7 +29,6 @@ function init() {
     kvRow("Atual", `${PROFILE.course.currentPeriod}º`)
   );
 
-  // Progress bars
   const chPct = pct(totals.chIntegralizada, totals.chCurso);
   byId("chText").textContent = `${totals.chIntegralizada} / ${totals.chCurso}h (${Math.round(chPct)}%)`;
   byId("chBar").style.width = `${chPct}%`;
@@ -41,10 +37,8 @@ function init() {
   byId("discText").textContent = `${totals.obrigatoriasConcluidas} / ${totals.obrigatoriasTotal} (${Math.round(discPct)}%)`;
   byId("discBar").style.width = `${discPct}%`;
 
-  // Area map from real grades
   renderAreaMap();
 
-  // Skills (default expanded = maior afinidade)
   const defaultExpanded = [...SKILLS].sort((a, b) => (b.affinity ?? 0) - (a.affinity ?? 0))[0]?.id;
   renderSkills({
     mount: byId("skillsWrap"),
@@ -52,16 +46,12 @@ function init() {
     defaultExpandedId: defaultExpanded
   });
 
-  // Attributes
   renderAttributes();
 
-  // Passives
   renderPassives();
 
-  // Timeline
   renderTimeline({ mount: byId("timeline"), timeline: ACADEMIC_TIMELINE });
 
-  // GitHub
   loadGithubProjects({
     mount: byId("projectsGrid"),
     user: PROFILE.links.githubUser,
@@ -106,7 +96,6 @@ function renderAreaMap() {
   const mount = byId("areaMap");
   mount.innerHTML = "";
 
-  // pega só cursos com nota (concluídos)
   const graded = ACADEMIC_TIMELINE
     .filter(p => p.status === "done")
     .flatMap(p => p.courses)
@@ -135,7 +124,6 @@ function renderAreaMap() {
   }
 }
 
-/* UI helpers */
 function byId(id) { return document.getElementById(id); }
 function chip(text) { return el("span", { class: "chip", text }); }
 function kvRow(k, v) {

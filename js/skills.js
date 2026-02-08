@@ -1,11 +1,5 @@
 import { el, clamp } from "./utils.js";
 
-/**
- * Render skills list with:
- * - expanded card is sticky and always on top
- * - arrows to browse level descriptions 1..10
- * - no scroll-jump behavior on click
- */
 export function renderSkills({ mount, skills, defaultExpandedId }) {
   mount.innerHTML = "";
 
@@ -13,7 +7,7 @@ export function renderSkills({ mount, skills, defaultExpandedId }) {
   const initialId = defaultExpandedId ?? sorted[0]?.id;
 
   let expandedId = initialId;
-  let levelView = new Map(); // skillId -> level currently previewed (1..10)
+  let levelView = new Map();
 
   for (const s of sorted) {
     const level = typeof s.level === "number" ? clamp(s.level, 1, 10) : null;
@@ -68,14 +62,11 @@ export function renderSkills({ mount, skills, defaultExpandedId }) {
 
     card.append(top, bar, details);
 
-    // Click/toggle
     const open = (ev) => {
       ev?.preventDefault?.();
       ev?.stopPropagation?.();
       expandedId = s.id;
-      // mantém ele sempre no topo pela classe expanded + grid-column + sticky
       updateAll();
-      // foco no card expandido
       card.focus({ preventScroll:true });
     };
 
@@ -112,7 +103,6 @@ export function renderSkills({ mount, skills, defaultExpandedId }) {
         const id = c.getAttribute("data-skill");
         c.classList.toggle("expanded", id === expandedId);
       });
-      // atualiza descrição do atual
       const curCard = mount.querySelector(`.skillCard[data-skill="${expandedId}"]`);
       if (!curCard) return;
       const id = curCard.getAttribute("data-skill");
@@ -125,12 +115,10 @@ export function renderSkills({ mount, skills, defaultExpandedId }) {
       if (descEl) descEl.textContent = curSkill.levelDescriptions?.[lv] ?? "Sem descrição para este nível (edite em data.js).";
     }
 
-    // init per-card
     setDesc();
     updateCard();
   }
 
-  // aplica expanded inicial após render
   if (initialId) {
     const first = mount.querySelector(`.skillCard[data-skill="${initialId}"]`);
     if (first) first.classList.add("expanded");

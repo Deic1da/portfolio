@@ -5,7 +5,6 @@
   padding:10px 0 18px;
 }
 
-/* Resumo */
 .resumoGrid{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -38,7 +37,6 @@
   font-weight:900;
 }
 
-/* Skills */
 .skillsWrap{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -88,7 +86,6 @@
   border-radius:999px;
 }
 
-/* Expanded skill pinned on top */
 .skillCard.expanded{
   grid-column: 1 / -1;
   cursor:default;
@@ -96,7 +93,7 @@
   border-color: rgba(120,255,214,.28);
   background: rgba(10,18,40,.62);
   position:sticky;
-  top: 12px; /* fica sempre em cima dentro do painel */
+  top: 12px;
   z-index:3;
   box-shadow: 0 18px 50px rgba(0,0,0,.35);
 }
@@ -148,7 +145,6 @@
   color:var(--muted);
 }
 
-/* Atributos */
 .attrGrid{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -184,7 +180,6 @@
   border-radius:999px;
 }
 
-/* Passivas */
 .passiveGrid{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -204,7 +199,6 @@
 }
 .passive p{ margin-top:8px; line-height:1.35; }
 
-/* Timeline */
 .timeline{
   display:grid;
   gap:12px;
@@ -263,7 +257,6 @@
 .courseRow .grade{ font-weight:900; }
 .courseRow .ch{ font-size:.9rem; color:var(--muted); }
 
-/* Projects */
 .projectsGrid{
   display:grid;
   grid-template-columns: 1fr 1fr;

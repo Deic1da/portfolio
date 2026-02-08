@@ -1,5 +1,4 @@
 function makeLevelScale({ base, mid, high }) {
-  // 1–3 base, 4–7 mid, 8–10 high
   const levels = {};
   for (let i = 1; i <= 10; i++) {
     if (i <= 3) levels[i] = base;
@@ -9,10 +8,6 @@ function makeLevelScale({ base, mid, high }) {
   return levels;
 }
 
-/**
- * Skills: níveis aqui são autoavaliação.
- * Se quiser “não afirmar nível”, deixa level: null (ou remove).
- */
 export const SKILLS = [
   {
     id: "programacao",

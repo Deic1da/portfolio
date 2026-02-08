@@ -20,10 +20,10 @@ export const PROFILE = {
     }
   },
   links: {
-    cvUrl: "#",          // <- link do PDF do CV
-    githubUser: "eicida", // <- MUDE se seu user for outro
+    cvUrl: "#",
+    githubUser: "eicida",
     githubUrl: "https://github.com/eicida",
-    linkedinUrl: "#",     // <- seu LinkedIn
+    linkedinUrl: "#",
     email: "mailto:seuemail@exemplo.com"
   }
 };
@@ -42,10 +42,6 @@ export const PASSIVES = [
   { id: "organiza", name: "Organização", desc: "Gosta de dividir, modularizar e deixar o projeto fácil de manter." }
 ];
 
-/**
- * Timeline acadêmica (com notas reais onde existem)
- * status: "done" | "doing" | "planned"
- */
 export const ACADEMIC_TIMELINE = [
   {
     period: 1,

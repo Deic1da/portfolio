@@ -1,9 +1,4 @@
 import { el } from "./utils.js";
-
-/**
- * Fetch public repos. No token.
- * If rate-limited, shows message.
- */
 export async function loadGithubProjects({ mount, user, metaEl, hintEl, max = 8 }) {
   mount.innerHTML = "";
   metaEl.textContent = `GitHub: @${user}`;
