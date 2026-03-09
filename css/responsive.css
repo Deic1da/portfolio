@@ -58,8 +58,7 @@
     padding-right: 14px;
   }
 
-  .topbar.scrolled  { padding: 9px 0; }
-  .avatar           { width: 80px; height: 80px; }
+.avatar           { width: 80px; height: 80px; }
   .brandText h1     { font-size: 1.22rem; }
   .brandText p      { font-size: .87rem; }
 

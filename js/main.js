@@ -3,9 +3,10 @@ import { el, pct, avg, formatGrade } from "./utils.js";
 import { renderSkills }     from "./skills.js";
 import { renderTimeline }   from "./timeline.js";
 import { renderAttributes } from "./attrs.js";
+import { initParticleBg } from "./fx.js";
 
+initParticleBg();
 init();
-initScrollGlass();
 initTyping();
 
 /*  Orchestrator  */
@@ -110,14 +111,6 @@ function initAvatar() {
   img.addEventListener("load",  show, { once: true });
   img.addEventListener("error", hide, { once: true });
   if (img.complete && img.naturalWidth > 0) show();
-}
-
-function initScrollGlass() {
-  const topbar = document.querySelector(".topbar");
-  if (!topbar) return;
-  const toggle = () => topbar.classList.toggle("scrolled", window.scrollY > 24);
-  toggle();
-  window.addEventListener("scroll", toggle, { passive: true });
 }
 
 function initTyping() {
