@@ -15,7 +15,7 @@ export async function loadGithubProjects({ mount, user, metaEl, hintEl, max = 8 
     const repos = await res.json();
     const filtered = repos
       .filter(r => !r.fork && !r.private)
-      .sort((a,b)=> new Date(b.pushed_at) - new Date(a.pushed_at))
+      .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
       .slice(0, max);
 
     if (!filtered.length) {
@@ -23,8 +23,12 @@ export async function loadGithubProjects({ mount, user, metaEl, hintEl, max = 8 
       return;
     }
 
-    for (const r of filtered) {
-      const languages = await loadRepoLanguages(r);
+    // Busca idiomas de todos os repos em paralelo em vez de sequencialmente
+    const allLanguages = await Promise.all(filtered.map(r => loadRepoLanguages(r)));
+
+    for (let i = 0; i < filtered.length; i++) {
+      const r         = filtered[i];
+      const languages = allLanguages[i];
       const top = el("div", { class:"projectTop" }, [
         el("div", {}, [
           el("div", { class:"projectTitle", text: r.name }),

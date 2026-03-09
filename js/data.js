@@ -20,12 +20,11 @@ export const PROFILE = {
     }
   },
   links: {
-    cvUrl: "docs/Melquisedeque%20Gomes%20da%20Silva%20Santos.pdf",
-    githubUser: "Deic1da",
-    githubUrl: "https://github.com/Deic1da",
+    cvUrl:       "docs/Melquisedeque%20Gomes%20da%20Silva%20Santos.pdf",
+    githubUrl:   "https://github.com/Deic1da",
     linkedinUrl: "https://www.linkedin.com/in/melquisedequegomes/",
-    email: "mailto:melquigms@gmail.com"
-  }
+    email:       "mailto:melquigms@gmail.com",
+  },
 };
 
 export const ATTRIBUTES = [
@@ -41,6 +40,41 @@ export const ATTRIBUTES = [
   { id: "teamwork", name: "Trabalho em equipe", value: 5 },
   { id: "codeOrganization", name: "Organização de código", value: 7 },
   { id: "writing", name: "Comunicação escrita", value: 6 }
+];
+
+/** Mapeamento de áreas acadêmicas para o resumo de notas.
+ *  Cada entrada define um nome e uma função `test(courseName)`.
+ *  Centralizado aqui para não ficar hardcoded dentro de funções de render.
+ */
+export const AREA_DEFINITIONS = [
+  {
+    name: "Programação",
+    test: (n) => /programa|laboratório de programação|poo|estrutura de dados/i.test(n),
+  },
+  {
+    name: "Banco de Dados",
+    test: (n) => /banco de dados/i.test(n),
+  },
+  {
+    name: "Matemática / Estatística",
+    test: (n) => /cálculo|probabilidade|estatística|lógica matemática|matemática computacional/i.test(n),
+  },
+  {
+    name: "Redes",
+    test: (n) => /redes/i.test(n),
+  },
+  {
+    name: "Fundamentos (Arquitetura/SI)",
+    test: (n) => /arquitetura|organização de computadores|princípios de sistemas|sistemas de informação/i.test(n),
+  },
+  {
+    name: "Gestão / Engenharia",
+    test: (n) => /engenharia de software|gestão|empreendedorismo|projeto integrador/i.test(n),
+  },
+  {
+    name: "Idiomas / Comunicação",
+    test: (n) => /inglês|libras/i.test(n),
+  },
 ];
 
 export const ACADEMIC_TIMELINE = [
