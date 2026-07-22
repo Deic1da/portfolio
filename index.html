@@ -2,133 +2,319 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Melqui — Portfólio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Melquisedeque Gomes — Portfólio</title>
+  <meta name="description" content="Estudante de Sistemas de Informação no CESMAC, estagiando na SEFAZ AL. Back-end, modelagem de dados e desenvolvimento de software." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="./css/base.css" />
-  <link rel="stylesheet" href="./css/components.css" />
-  <link rel="stylesheet" href="./css/sections.css" />
-  <link rel="stylesheet" href="./css/responsive.css" />
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #100f0d;
+      color: #f2efe9;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: #e8b04b; text-decoration: none; }
+    ::selection { background: rgba(232,176,75,.28); color: #fff; }
+
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+
+    /* Header */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      background: rgba(16,15,13,.72);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .site-header .bar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; padding: 13px 28px; max-width: 1120px; margin: 0 auto;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; color: #f2efe9; }
+    .brand:hover { color: #f2efe9; }
+    .logo-badge {
+      width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(232,176,75,.5); border-radius: 9px;
+      font-family: 'JetBrains Mono', monospace; font-size: .82rem; font-weight: 500; color: #e8b04b;
+    }
+    .brand .name { font-weight: 600; letter-spacing: -.01em; font-size: .98rem; }
+    .nav { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+    .nav-link {
+      padding: 8px 12px; border-radius: 9px; font-size: .92rem; color: #9c968b;
+      transition: color .18s ease;
+    }
+    .nav-link:hover { color: #f2efe9; }
+    .nav-cta {
+      margin-left: 6px; padding: 8px 16px; border-radius: 9px; font-size: .92rem; font-weight: 600;
+      color: #17140d; background: #e8b04b; border: 1px solid #e8b04b;
+      transition: background .18s ease, border-color .18s ease;
+    }
+    .nav-cta:hover { background: #f4c877; border-color: #f4c877; color: #17140d; }
+
+    /* Hero */
+    .hero { padding: 76px 0 88px; }
+    .hero .inner { display: flex; flex-wrap: wrap; gap: 52px; align-items: center; }
+    .hero .col-text { flex: 1 1 440px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 13px; border-radius: 999px;
+      border: 1px solid rgba(232,176,75,.35); background: rgba(232,176,75,.1);
+      font-family: 'JetBrains Mono', monospace; font-size: .72rem; letter-spacing: .08em;
+      text-transform: uppercase; color: #e8b04b; margin-bottom: 26px;
+    }
+    .badge .dot {
+      width: 7px; height: 7px; border-radius: 50%; background: #e8b04b;
+      box-shadow: 0 0 8px rgba(232,176,75,.8);
+    }
+    .hero h1 {
+      font-family: 'Instrument Serif', serif; font-weight: 400;
+      font-size: clamp(2.7rem, 6.4vw, 4.6rem); line-height: 1.02; letter-spacing: -.015em;
+      margin: 0 0 24px;
+    }
+    .hero h1 em { font-style: italic; color: #e8b04b; }
+    .hero .lead { max-width: 520px; font-size: 1.08rem; color: #b7b1a6; margin: 0 0 32px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 34px; }
+    .btn {
+      padding: 12px 22px; border-radius: 11px; font-weight: 600; font-size: .96rem;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+    }
+    .btn-primary { color: #17140d; background: #e8b04b; border: 1px solid #e8b04b; }
+    .btn-primary:hover { background: #f4c877; box-shadow: 0 10px 28px rgba(232,176,75,.24); transform: translateY(-2px); color: #17140d; }
+    .btn-ghost { color: #f2efe9; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.16); }
+    .btn-ghost:hover { border-color: rgba(232,176,75,.5); transform: translateY(-2px); color: #f2efe9; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      padding: 6px 13px; border-radius: 999px; border: 1px solid rgba(255,255,255,.11);
+      background: rgba(255,255,255,.025); font-size: .84rem; color: #b7b1a6;
+    }
+    .col-photo { flex: 0 1 330px; position: relative; min-width: 260px; }
+    .photo-frame { position: absolute; inset: 20px -20px -20px 20px; border: 1px solid rgba(232,176,75,.4); border-radius: 20px; pointer-events: none; }
+    .photo {
+      position: relative; border-radius: 20px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,.12); aspect-ratio: 4/5;
+      background: linear-gradient(160deg, #1c1a16, #141310);
+    }
+    .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* Sections */
+    .section { padding: 66px 0; border-top: 1px solid rgba(255,255,255,.07); }
+    .section h2 {
+      font-family: 'Instrument Serif', serif; font-weight: 400;
+      font-size: clamp(1.9rem, 4vw, 2.9rem); line-height: 1.1; letter-spacing: -.01em; margin: 0 0 40px;
+    }
+
+    /* Sobre */
+    .about-grid { display: flex; flex-wrap: wrap; gap: 48px; align-items: start; }
+    .about-text { flex: 1 1 420px; max-width: 640px; display: flex; flex-direction: column; gap: 20px; }
+    .about-text p.big { margin: 0; font-size: 1.14rem; color: #d8d3c8; line-height: 1.65; }
+    .about-text p.sub { margin: 0; font-size: 1.02rem; color: #a8a297; line-height: 1.7; }
+    .facts {
+      flex: 0 1 300px; min-width: 250px; border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px; background: rgba(255,255,255,.02); overflow: hidden;
+    }
+    .fact { display: flex; justify-content: space-between; gap: 16px; padding: 13px 18px; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .fact:last-child { border-bottom: none; }
+    .fact .k { color: #8a847a; font-size: .9rem; }
+    .fact .v { font-weight: 600; font-size: .9rem; text-align: right; }
+
+    /* Stack */
+    .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(268px, 1fr)); gap: 14px; margin-bottom: 30px; }
+    .stack-card {
+      padding: 18px 20px; border: 1px solid rgba(255,255,255,.1); border-radius: 14px;
+      background: rgba(255,255,255,.025); transition: transform .18s ease, border-color .18s ease;
+    }
+    .stack-card:hover { transform: translateY(-3px); border-color: rgba(232,176,75,.3); }
+    .stack-card .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+    .stack-card .n { font-weight: 700; font-size: 1.02rem; }
+    .tier { display: inline-flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; }
+    .tier .dot { width: 7px; height: 7px; border-radius: 50%; }
+    .stack-card .note { margin: 0; font-size: .92rem; color: #a8a297; line-height: 1.55; }
+    .tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .tools .label { font-family: 'JetBrains Mono', monospace; font-size: .76rem; color: #8a847a; margin-right: 6px; }
+    .tool {
+      padding: 6px 13px; border-radius: 8px; border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.03); font-family: 'JetBrains Mono', monospace; font-size: .82rem; color: #c9c3b8;
+    }
+
+    /* Contato */
+    .contato { text-align: center; }
+    .contato h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.05; margin: 0 0 18px; }
+    .contato .lead { margin: 0 auto 34px; max-width: 480px; color: #a8a297; font-size: 1.05rem; }
+    .contato .cta-row { justify-content: center; margin-bottom: 0; }
+    .contato .btn { padding: 13px 26px; }
+
+    /* Footer */
+    .site-footer { border-top: 1px solid rgba(255,255,255,.07); padding: 26px 0 40px; }
+    .site-footer .bar {
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
+      color: #6f6a61; font-size: .85rem;
+    }
+    .site-footer .cred { display: flex; align-items: center; gap: 10px; }
+    .footer-badge {
+      width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255,255,255,.14); border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace; font-size: .72rem; color: #9c968b;
+    }
+    .site-footer .place { font-family: 'JetBrains Mono', monospace; }
+  </style>
 </head>
 
 <body>
-  <div class="bg"></div>
-
-  <header class="topbar container">
-    <div class="brand">
-      <div class="avatar" data-initials="M">
-        <img src="./img/Perfil.png" alt="Foto de perfil de Melqui" loading="lazy" />
-        <span class="avatarFallback" aria-hidden="true">M</span>
-      </div>
-      <div class="brandText">
-        <h1>Melqui — Portfólio</h1>
-        <p class="muted">UI gamificada, conteúdo objetivo. Skills, atributos, projetos e timeline acadêmica.</p>
-      </div>
+  <header class="site-header">
+    <div class="bar">
+      <a href="#top" class="brand">
+        <span class="logo-badge">MG</span>
+        <span class="name">Melquisedeque Gomes</span>
+      </a>
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#sobre" class="nav-link">Sobre</a>
+        <a href="#stack" class="nav-link">Stack</a>
+        <a href="mailto:melquigms@gmail.com" class="nav-cta">Contato</a>
+      </nav>
     </div>
-
-    <nav class="actions" aria-label="Ações e links">
-      <a class="btn" id="btnCv" href="docs/Melquisedeque%20Gomes%20da%20Silva%20Santos.pdf" download>Baixar CV</a>
-      <a class="btn" id="btnGithub" href="#" target="_blank" rel="noreferrer">GitHub</a>
-      <a class="btn" id="btnLinkedin" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
-      <a class="btn" id="btnEmail" href="#" target="_blank" rel="noreferrer">E-mail</a>
-    </nav>
   </header>
 
-  <main class="grid mainLayout">
-    <section class="panel" aria-labelledby="secResumo">
-      <div class="panelHeader">
-        <h2 id="secResumo">Resumo</h2>
+  <main>
+    <section id="top" class="hero">
+      <div class="wrap inner">
+        <div class="col-text">
+          <div class="badge">
+            <span class="dot" aria-hidden="true"></span>
+            Estagiário na SEFAZ AL
+          </div>
+          <h1>Construindo software<br /><em>do banco de dados à tela.</em></h1>
+          <p class="lead">
+            Estudante de Sistemas de Informação no CESMAC, atualmente estagiando na SEFAZ AL.
+            Passo boa parte do tempo escrevendo código, modelando dados e entendendo como as
+            coisas funcionam por baixo do capô.
+          </p>
+          <div class="cta-row">
+            <a href="https://github.com/Deic1da" target="_blank" rel="noreferrer" class="btn btn-primary">Ver meu GitHub</a>
+            <a href="mailto:melquigms@gmail.com" class="btn btn-ghost">Fale comigo</a>
+            <a href="https://www.linkedin.com/in/melquisedequegomes/" target="_blank" rel="noreferrer" class="btn btn-ghost">LinkedIn</a>
+          </div>
+          <div class="chips">
+            <span class="chip">Sistemas de Informação · CESMAC</span>
+            <span class="chip">Estágio na SEFAZ AL</span>
+            <span class="chip">Back-end &amp; sistemas</span>
+          </div>
+        </div>
+        <div class="col-photo">
+          <div class="photo-frame" aria-hidden="true"></div>
+          <div class="photo">
+            <img src="./img/Perfil.png" alt="Foto de Melquisedeque Gomes" loading="lazy" />
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="panelBody resumoGrid">
-        <div class="card">
-          <h3>Formação Acadêmica</h3>
-          <div class="cardSection">
-            <div class="sectionTitle muted">Identidade</div>
-            <ul class="kv" id="academicIdentity"></ul>
+    <section id="sobre" class="section">
+      <div class="wrap">
+        <h2>Um pouco sobre mim</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p class="big">Estou no meio da graduação em Sistemas de Informação e, na prática, o que mais gosto de fazer é construir — de scripts pequenos a sistemas com banco de dados por trás.</p>
+            <p class="sub">Já com base sólida em programação, orientação a objetos e modelagem de dados, hoje coloco isso em prática no meu estágio na SEFAZ AL — onde ganho experiência real transformando problema confuso em software que resolve.</p>
           </div>
-          <div class="cardSection">
-            <div class="sectionTitle muted">Situação</div>
-            <ul class="kv" id="academicStatus"></ul>
+          <div class="facts">
+            <div class="fact"><span class="k">Curso</span><span class="v">Sistemas de Informação</span></div>
+            <div class="fact"><span class="k">Instituição</span><span class="v">CESMAC</span></div>
+            <div class="fact"><span class="k">Período</span><span class="v">6º (em andamento)</span></div>
+            <div class="fact"><span class="k">Experiência</span><span class="v">Estágio · SEFAZ AL</span></div>
+            <div class="fact"><span class="k">Localização</span><span class="v">Maceió, AL</span></div>
           </div>
-          <div class="cardSection">
-            <div class="sectionTitle muted">Progresso</div>
-            <div class="progressBlock">
-              <div class="progressRow">
-                <span class="muted">Carga horária</span>
-                <span class="mono" id="chText">—</span>
-              </div>
-              <div class="bar" aria-hidden="true"><span id="chBar"></span></div>
+        </div>
+      </div>
+    </section>
 
-              <div class="progressRow mt8">
-                <span class="muted">Disciplinas obrigatórias</span>
-                <span class="mono" id="discText">—</span>
-              </div>
-              <div class="bar" aria-hidden="true"><span id="discBar"></span></div>
+    <section id="stack" class="section">
+      <div class="wrap">
+        <h2>Com o que eu trabalho</h2>
+        <div class="stack-grid">
+          <div class="stack-card">
+            <div class="top">
+              <span class="n">Programação</span>
+              <span class="tier" style="color:#e8b04b;"><span class="dot" style="background:#e8b04b;"></span>Sólido</span>
             </div>
+            <p class="note">Lógica, algoritmos e projetos com Python, Java e JavaScript.</p>
           </div>
-          <p class="hint muted mt10">
-            Dados acadêmicos baseados no histórico do CESMAC (somente disciplinas concluídas).
-          </p>
+          <div class="stack-card">
+            <div class="top">
+              <span class="n">POO &amp; Design</span>
+              <span class="tier" style="color:#e8b04b;"><span class="dot" style="background:#e8b04b;"></span>Sólido</span>
+            </div>
+            <p class="note">Classes, responsabilidade, coesão, acoplamento e boas práticas.</p>
+          </div>
+          <div class="stack-card">
+            <div class="top">
+              <span class="n">Fundamentos &amp; Lógica</span>
+              <span class="tier" style="color:#e8b04b;"><span class="dot" style="background:#e8b04b;"></span>Sólido</span>
+            </div>
+            <p class="note">Estruturas de dados, matemática computacional e resolução de problemas.</p>
+          </div>
+          <div class="stack-card">
+            <div class="top">
+              <span class="n">Banco de Dados</span>
+              <span class="tier" style="color:#cfc8bb;"><span class="dot" style="background:#cfc8bb;"></span>Praticando</span>
+            </div>
+            <p class="note">Modelagem relacional, SQL e operações CRUD.</p>
+          </div>
+          <div class="stack-card">
+            <div class="top">
+              <span class="n">Desenvolvimento Web</span>
+              <span class="tier" style="color:#cfc8bb;"><span class="dot" style="background:#cfc8bb;"></span>Praticando</span>
+            </div>
+            <p class="note">HTML, CSS, JS e integração com back-end.</p>
+          </div>
+          <div class="stack-card">
+            <div class="top">
+              <span class="n">Redes</span>
+              <span class="tier" style="color:#8a8478;"><span class="dot" style="background:#8a8478;"></span>Aprendendo</span>
+            </div>
+            <p class="note">IP, DNS, HTTP e conceitos de infraestrutura.</p>
+          </div>
         </div>
-
-        <div class="card">
-          <h3>Mapa de áreas (com notas)</h3>
-          <div id="areaMap" class="areaMap"></div>
-          <p class="hint muted mt10">
-            “Cursando / planejado” não entra na média. Só disciplinas com nota.
-          </p>
-          <p class="hint muted mt8">
-            Resumo acadêmico por área, baseado apenas em disciplinas concluídas com nota.
-          </p>
+        <div class="tools">
+          <span class="label">ferramentas —</span>
+          <span class="tool">Python</span>
+          <span class="tool">Java</span>
+          <span class="tool">JavaScript</span>
+          <span class="tool">HTML/CSS</span>
+          <span class="tool">SQL</span>
+          <span class="tool">Git</span>
         </div>
       </div>
     </section>
 
-    <section class="panel" aria-labelledby="secSkills">
-      <div class="panelHeader">
-        <h2 id="secSkills">Skills</h2>
-        <div class="panelMeta mono muted">1–10 • clique para selecionar • ← → níveis</div>
-      </div>
-
-      <div class="panelBody">
-        <div class="skillsPanel" id="skillsPanel"></div>
-        <div class="skillsWrap" id="skillsWrap">
+    <section id="contato" class="section contato">
+      <div class="wrap">
+        <h2>Vamos construir algo?</h2>
+        <p class="lead">Aberto a novas oportunidades, projetos e a trocar ideia sobre código. É só chamar.</p>
+        <div class="cta-row">
+          <a href="mailto:melquigms@gmail.com" class="btn btn-primary">melquigms@gmail.com</a>
+          <a href="https://github.com/Deic1da" target="_blank" rel="noreferrer" class="btn btn-ghost">GitHub</a>
+          <a href="https://www.linkedin.com/in/melquisedequegomes/" target="_blank" rel="noreferrer" class="btn btn-ghost">LinkedIn</a>
         </div>
       </div>
     </section>
-
-    <section class="panel" aria-labelledby="secAttrs">
-      <div class="panelHeader">
-        <h2 id="secAttrs">Atributos</h2>
-        <div class="panelMeta mono muted">1–10</div>
-      </div>
-      <div class="panelBody">
-        <div class="attrGrid" id="attrGrid"></div>
-      </div>
-    </section>
-    
-    <section class="panel" aria-labelledby="secTimeline">
-      <div class="panelHeader">
-        <h2 id="secTimeline">Linha do tempo</h2>
-        <div class="panelMeta mono muted">1º → 8º período</div>
-      </div>
-      <div class="panelBody">
-        <div class="timeline" id="timeline"></div>
-      </div>
-    </section>
-
   </main>
 
-  <footer class="container footer muted">
-    UI gamificada • conteúdo objetivo • feito por Melqui
+  <footer class="site-footer">
+    <div class="wrap bar">
+      <span class="cred"><span class="footer-badge">MG</span>© <span id="year">2026</span> Melquisedeque Gomes</span>
+      <span class="place">feito à mão · Maceió, AL</span>
+    </div>
   </footer>
 
-  <script type="module" src="./js/main.js"></script>
-  
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
