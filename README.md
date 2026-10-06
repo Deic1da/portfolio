@@ -16,7 +16,7 @@ e implementado à mão como HTML/CSS autocontido.
 
 ### Seções
 
-- **Hero** — apresentação, status atual e foto de perfil.
+- **Hero** — apresentação, status atual e monograma com as iniciais.
 - **Sobre** — bio e uma tabela de fatos (curso, instituição, período, etc.).
 - **Stack** — áreas de conhecimento agrupadas por nível de domínio, mais a
   lista de ferramentas.
@@ -35,8 +35,6 @@ Os níveis da seção Stack seguem três categorias, sinalizadas por cor:
 ```
 .
 ├── index.html   # Página completa (HTML + CSS inline em <style>)
-├── img/
-│   └── Perfil.png
 ├── docs/
 │   └── Melquisedeque Gomes da Silva Santos.pdf   # Currículo
 └── README.md
@@ -76,7 +74,7 @@ Os dados exibidos ficam diretamente no `index.html`. Para atualizar:
 - **Stack**: cada card `.stack-card` na seção `#stack`; ajuste o nível trocando
   o texto e a cor (`color` / `background` do `.dot`) conforme a tabela acima.
 - **Ferramentas**: itens `.tool` no fim da seção `#stack`.
-- **Foto**: substitua `img/Perfil.png`.
+- **Monograma** (no lugar da foto): bloco `.monogram` na seção de apresentação.
 - **Currículo**: substitua o PDF em `docs/`.
 
 ## Design
